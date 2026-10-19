@@ -1,0 +1,84 @@
+/* Back of House landing, the pitch rebuild (19 Oct 2026, evening). Loaded after site.css; same tokens, same objects.
+   Only what the new sections need. Amber (.fill) only behind money found: £37,390, £1,511.22, £40.50. */
+
+/* hero: the money line leads (three lines on a laptop), the tagline closes the block */
+.hero{grid-template-columns:minmax(0,6fr) minmax(0,6fr)}
+.hero-h{font-size:clamp(44px,4.5vw,80px);max-width:none}
+.hero-facts div{grid-template-columns:96px 1fr}
+@media (max-width:900px){.hero{grid-template-columns:1fr}.hero-h br{display:none}}
+.top nav .btn{white-space:nowrap}
+@media (max-width:480px){.top nav .btn-sm{font-size:14px;padding:0 12px}.brand{width:150px}}
+.hero-first{margin-top:14px;font-size:20px;line-height:1.3;transform:rotate(-1.2deg);transform-origin:left;max-width:30ch}
+.hero-who{font-size:clamp(18px,1.4vw,22px);font-stretch:118%;font-weight:800;color:var(--ink);margin-top:clamp(18px,2.2vw,28px)}
+.js-motion .hero-first{opacity:0}
+
+/* No. 01: the statement check beside what it means */
+.gain-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,80px);align-items:start;margin-top:clamp(36px,5vw,64px)}
+.stmt{max-width:640px}
+.stmt .ch b small{font-weight:500;font-size:15px;color:var(--check-ink);margin-left:6px;font-stretch:100%}
+.stmt-big{margin:16px 0 10px;font-size:clamp(24px,2.4vw,34px);font-stretch:118%;font-weight:800;line-height:1.15;letter-spacing:-.01em}
+.stmt-big .amt{font-size:1.1em;padding:0 .14em;font-stretch:125%}
+.stmt .ln{min-height:58px}
+.stmt .ln .it{font-size:17px}
+.stmt .ln .it small{color:var(--check-ink)}
+.stmt .ln .v{font-size:20px;font-weight:800;font-stretch:112%}
+.stmt-sub{margin:12px 0 0;font-size:14.5px;line-height:1.45;color:var(--check-ink)}
+.stmt-h3{margin:22px 0 2px;font-size:13px;font-weight:800;letter-spacing:.05em;color:var(--check-ink);font-stretch:112%}
+.stmt-stamp{position:absolute;right:20px;top:-6px;z-index:2}
+.gain-pts{margin:0}
+.gain-pts div:first-child{border-top:0;padding-top:0}
+.gain-pts .amt.fill{font-weight:800;padding:0 3px}
+.gain-fig{margin:clamp(24px,3vw,40px) 0 0}
+.gain-fig figcaption{margin-top:12px;font-size:14.5px;line-height:1.45;color:var(--steel)}
+@media (max-width:900px){.gain-grid{grid-template-columns:minmax(0,1fr)}.stmt{max-width:none}}
+@media (max-width:560px){.stmt{padding:20px 16px 22px}.stmt .ln .v{font-size:18px}.stmt-stamp{right:12px;top:-10px;font-size:19px}}
+
+/* No. 02: six outcomes, each a heading and one short paragraph */
+.out p{margin-top:var(--s3);font-size:17px;line-height:1.48;flex:1}
+.changes-fig{margin:clamp(40px,5vw,72px) 0 0}
+.changes-fig figcaption{margin-top:12px;font-size:14.5px;line-height:1.45;color:var(--steel)}
+
+/* No. 03: three stages with what each costs */
+.stages li{display:flex;flex-direction:column}
+.stages p{flex:1}
+.stages p b{display:inline;margin:0;font-size:inherit;line-height:inherit;font-stretch:112%;letter-spacing:0}
+.st-cost{display:block;margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--hair);font-size:15.5px;line-height:1.4;font-weight:650;color:var(--ink)}
+.cost-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:start;margin-top:clamp(40px,5vw,64px)}
+.cost-row .stop{justify-self:start;transform:rotate(-.6deg)}
+.cost-note{font-size:clamp(17px,1.3vw,19px);line-height:1.5;max-width:40ch;padding-top:6px}
+@media (max-width:900px){.cost-row{grid-template-columns:minmax(0,1fr)}.cost-row .stop{justify-self:stretch;transform:none}}
+
+/* No. 04: the sign card beside the five promises */
+.charge-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(32px,5vw,80px);align-items:start;margin-top:clamp(36px,5vw,64px)}
+.charge-grid .sign-wrap{grid-area:auto;position:relative;margin-top:0}
+.charge-grid .signcard{max-width:none;margin-top:var(--s4)}
+.charge-stamp{position:absolute;right:16px;top:30px;z-index:3}
+.charge-list{margin-top:0}
+.charge-list li:first-child{border-top:0;padding-top:0}
+.charge .record-fig{margin-top:clamp(40px,5vw,64px)}
+@media (max-width:900px){.charge-grid{grid-template-columns:minmax(0,1fr)}.charge-stamp{top:26px;right:10px}}
+@media (max-width:560px){.signcard{padding:20px 16px 22px}}
+
+/* No. 05: our first venues, a statement and four promises */
+.first-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,5vw,80px);align-items:start}
+.first .lede{margin-top:clamp(20px,2.4vw,32px);max-width:34ch;font-size:clamp(20px,1.9vw,27px);line-height:1.35}
+.first-pts{margin:0;padding-top:clamp(28px,3vw,44px)}
+.first-pts div{padding:16px 0}
+@media (max-width:900px){.first-grid{grid-template-columns:minmax(0,1fr)}.first .lede{max-width:40ch}.first-pts{padding-top:0}}
+
+/* No. 06: book */
+.book .two{align-items:start}
+.book .nx div{grid-template-columns:130px 1fr}
+@media (max-width:520px){.book .nx div{grid-template-columns:1fr}}
+
+/* entrance: a section's parts rise as it enters (heading, then text, then figure); content is visible without JS */
+.js-motion [data-sheet]:not(.hero) .sec-head,.js-motion [data-sheet]:not(.hero) .wrap>:not(.sec-head){transition:opacity .5s var(--ease-out),transform .6s var(--ease-out)}
+.js-motion [data-sheet]:not(.hero):not(.is-in) .sec-head,.js-motion [data-sheet]:not(.hero):not(.is-in) .wrap>:not(.sec-head){opacity:0;transform:translateY(18px)}
+.js-motion [data-sheet].is-in .wrap>:nth-child(2){transition-delay:.08s}
+.js-motion [data-sheet].is-in .wrap>:nth-child(3){transition-delay:.16s}
+.js-motion [data-sheet].is-in .wrap>:nth-child(4){transition-delay:.24s}
+.js-motion [data-sheet].is-in .wrap>:nth-child(5){transition-delay:.3s}
+@media (prefers-reduced-motion:reduce){.js-motion [data-sheet] .wrap>*,.js-motion [data-sheet] .sec-head{opacity:1!important;transform:none!important}}
+
+/* phone: the title block stays legible (impeccable detect: 10.5px functional text) */
+@media (max-width:900px){.title-block{font-size:11px}.title-block .tb-c{font-size:12px}}
