@@ -1,0 +1,1042 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Back of House</title>
+<meta name="description" content="Back of House reads the records your hospitality venue already keeps, finds where you are losing money, and lines up each fix for you to sign. Software does the sums, a person checks them, you decide. For owners and operators.">
+<!-- Back of House landing page, 34_landing. 18 Oct 2026: brought in line with the rebuilt client deck
+     (33_client_deck/COPY.md, REVIEW_2026-10-18.md, 99_FINAL/1_pitch/BOH_DECK.pdf, 13 slides). Section order follows the deck.
+     Every pound figure is SAMPLE output on invented venues: the Opportunity Audit report
+     (99_FINAL/4_product_reports/opportunity_audit_UNIFIED_SAMPLE_every_section.pdf), the 38_dashboard crops the deck uses
+     (33_client_deck/assets/dash_*), 35_marketing / 38_dashboard "Did it pay?", 41_accounting K1 (£6.48), 42_pos (staff meal).
+     External figures: GOV.UK 2026-27 rates, CIPD 2024. No scroll-jacking, no pinned sections (FABLE_REVIEW.md).
+     Previous version: _prev/2026-10-18_1705/. -->
+<link rel="icon" href="assets/img/back-of-house_mark.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<!-- 19 Oct 2026 (day): feature-coverage restructure, mirrors the 16-page deck (No. 01 to No. 14; deck No. 14 and 15 are the folded No. 14 here).
+     New: No. 04 money (room picker + brand claim), No. 05 service mode + sign card, No. 06 people (payslip), No. 07 guests (host stand),
+     No. 08 quiet-hours ideas, No. 09 owner home, No. 10 trust check, No. 14 capability index. Previous: _prev/2026-10-19_pre_features/.
+     19 Oct 2026: creative-director pass. CREATIVE_DIRECTION_2026-10-19.md ("Drawn, checked, signed") and 08_brand/DESIGN_SYSTEM_2026-10-19.md.
+     One numbering and one set of headlines with the deck (No. 01 to No. 12). Previous version: _prev/2026-10-19_pre_cd/.
+     19 Oct overnight: No. 09 Everything in one place added (deck No. 09); card fees + brand rebates in No. 03 and No. 04; now No. 01 to No. 13. Previous: _prev/2026-10-19_pre_overnight/.
+     19 Oct (late): "The pass" brought in from 38_dashboard v6 (research/cd_2026-10-19/DIRECTION.md): the rail of checks and the spike
+     (No. 05), printed values and biro only for people, paper by day and stainless at night (No. 05 service), Sign · Say no · Not now · Why.
+     New built features from today's reports (07, 58, 14, 18, 02): found, signed, banked; right / wrong / already knew; SEND; per-venue
+     data kept apart (02's exact line); export outside the licence; signed record per venue; handover pack; skills record; Score your rota;
+     Scotland, NI, cumulative impact zones; Friday/Saturday bottleneck; product match; probe photos; FreeAgent. Fresh crops: assets/img/v6/.
+     Previous: _prev/2026-10-19_pre_pass/.
+     19 Oct 2026 17:10, plain-language rebuild (James 17:08: "easy to understand ... features explained well and simply").
+     Order: what it is, problem, who does what, how it works, what it does (one plain line per feature), the feature sheets,
+     data and trust, cost, next step, the full list (collapsed). Rows 13, 180, 185, 206 added to the list; 128 left out on purpose.
+     New sheet: reputation and search (60_reputation, partly built, SAMPLE). Previous: _archive/2026-10-19_pre_plain/. -->
+<script>/* hide the hero until the ink drawing runs; site.js removes this if GSAP is missing or motion is reduced */
+try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("js-motion")}catch(e){}
+setTimeout(function(){if(!window.gsap)document.documentElement.classList.remove("js-motion")},4000);</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the page</a>
+
+<header class="top" id="top">
+  <a class="brand" href="#top" aria-label="Back of House, back to the top">
+    <img class="lock lock-light" src="assets/img/back-of-house_lockup.svg" alt="" width="250" height="23">
+    <img class="lock lock-dark" src="assets/img/back-of-house_lockup_on-dark.svg" alt="" width="250" height="23">
+  </a>
+  <span class="sheet-ind" aria-hidden="true"><span class="sheet-n"><span>Cover</span></span></span>
+  <nav aria-label="Sections">
+    <a href="#who">Who does what</a>
+    <a href="#how">How it works</a>
+    <a href="#features">What it does</a>
+    <a href="#yours">Your data</a>
+    <a href="#cost">Cost</a>
+    <a class="btn btn-sm" href="#book">Book an audit</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- HERO: the plan draws itself (pattern: Heron AI, line drawing resolves, then the words) -->
+<section class="hero sheet" data-sheet="00" aria-labelledby="h-hero">
+  <div class="hero-copy">
+    <div class="hero-head">
+      <h1 id="h-hero" class="hero-h"><span class="w"><span>Your</span></span> <span class="w"><span>venue,</span></span> <span class="w"><span>at</span></span> <span class="w"><span>its</span></span> <span class="w"><span>best.</span></span></h1>
+    </div>
+    <div class="hero-body">
+      <p class="hero-line"><b>Back of House reads the records your venue already keeps, finds where you are losing money, and lines up each fix for you to sign.</b> Your POS sales, rota, invoices, bank and accounts. Our software does the sums, a person at Back of House checks them, and nothing changes until you sign.</p>
+      <p class="hero-status"><span class="tag">SAMPLE</span>Built and tested on invented sample venues. Not yet live with a venue.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#book">Book an audit</a>
+        <a class="btn btn-ghost" href="#who">See how it works</a>
+      </div>
+      <dl class="hero-facts">
+        <div><dt>Start</dt><dd>An Opportunity Audit on your own records, with an hour or two in your office.</dd></div>
+        <div><dt>You get</dt><dd>Every leak in pounds, biggest first, with the sums.</dd></div>
+        <div><dt>Then</dt><dd>A 30-day trial, priced per site. Miss the target you wrote down and you stop, owing nothing more.</dd></div>
+      </dl>
+      <p class="hero-who">For hospitality venue owners and operators.</p>
+    </div>
+  </div>
+  <figure class="hero-plan">
+    <svg id="plan-hero" class="plan is-drawing" viewBox="-10 -10 1030 740" role="img" aria-labelledby="plan-hero-t"><title id="plan-hero-t">Ground-floor plan of a venue, six places marked in biro where the audit looks for leaks</title></svg>
+    <p class="plan-note hand" aria-hidden="true">where the money leaks</p>
+    <div class="xhair" aria-hidden="true"><i class="xh-x"></i><i class="xh-y"></i><span class="xh-l"></span></div>
+    <figcaption class="title-block">
+      <span class="tb-a">Back of House</span><span class="tb-b">Sheet 01</span>
+      <span class="tb-c">Ground floor, marked up</span>
+      <span class="tb-d">Where the audit looks</span><span class="tb-e">No. 0001</span>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- No. 01 PROBLEM (deck No. 01). Kept as it was. -->
+<section class="sec problem" data-sheet="01" aria-labelledby="h-problem">
+  <div class="wrap">
+    <span class="no">No. 01</span>
+    <h2 id="h-problem">Your operating systems don’t talk to each other.</h2>
+    <figure class="sheets">
+      <img src="assets/img/three_sheets.jpg" alt="Drawing: a POS receipt, a rota and a stock sheet pinned to three separate boards, Friday 21:00" width="1200" height="458" loading="lazy">
+      <div class="sheet-labels" aria-hidden="true"><span><b>POS</b>sales by item</span><span><b>Rota</b>hours and pay</span><span><b>Stock sheet</b>counts</span></div>
+    </figure>
+    <div class="problem-row">
+      <p class="lede">Your POS, rota, stock sheet and accounts each hold part of the picture. So someone joins them up by hand after close, and leaks are found late: stock that walks, overtime that creeps, supplier prices that edge up.</p>
+      <div class="chk torn costs">
+        <div class="ch"><b>Costs up, staff leaving</b><span class="serial">UK</span></div>
+        <div class="ln"><span class="it">One hour on the payslip<small>National Living Wage, from 1 April 2026</small></span><span class="v">£12.71</span></div>
+        <div class="ln"><span class="it">What one hour of staff really costs you<small>SAMPLE: with employer NI, pension and holiday, before any Employment Allowance</small></span><span class="v">£16.30</span></div>
+        <div class="ln"><span class="it">Staff turnover in hospitality, the highest of any UK sector</span><span class="v">52%</span></div>
+      </div>
+    </div>
+    <details class="working">
+      <summary>Show the working and sources</summary>
+      <p class="src">SAMPLE working: one full-time person on £12.71, 40 hours a week, paid 52 weeks. Wage £26,436.80 + employer NI 15% above £5,000 (£3,215.52) + pension 3% above £6,240 (£605.90) = £30,258.22 a year. 5.6 of those weeks are paid holiday, so 46.4 × 40 = 1,856 hours worked: £30,258.22 ÷ 1,856 = £16.30 an hour. Before any Employment Allowance, which lowers employer NI if you qualify.</p>
+      <p class="src">Sources: GOV.UK, 2026–27 rates: National Living Wage, employer NI, workplace pensions, holiday entitlement. CIPD, Benchmarking employee turnover, 2024 (ONS data, 2022–23).</p>
+    </details>
+  </div>
+</section>
+
+<!-- No. 02 WHO DOES WHAT (new 19 Oct, plain rebuild; re-cut from the old No. 02 four stations). Sources: 16_offer/FINAL_OFFER.md
+     (the promise: every figure computed with its working; nothing that moves money, pay or people without a named person's signature;
+     "we watch the data daily, send a weekly note and hold a monthly review"); 47_ops_runtime/README.md (exceptions reach a person at
+     Back of House); 07_modules router (always-a-person gates). The biro line still runs through four stations; amber only on Find. -->
+<section class="sec what who" id="who" aria-labelledby="h-who" data-sheet="02">
+  <div class="wrap">
+    <span class="no">No. 02</span>
+    <h2 id="h-who">Who does what.</h2>
+    <p class="intro">Software does the reading and the sums. A person at Back of House checks them. You decide.</p>
+    <div class="flow4">
+      <svg class="flow4-line" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M20 22 C 150 8, 210 36, 345 21 S 560 8, 672 22 S 880 36, 985 20"/></svg>
+      <ol>
+        <li><span class="num" aria-hidden="true">1</span><span class="who-by hand">our software</span><b>Reads</b><p>Your POS, accounts, rota, invoices and bank, linked once or sent as downloads. It reads; it never changes anything in them.</p></li>
+        <li><span class="num" aria-hidden="true">2</span><span class="who-by hand">our software</span><b><span class="fill">Finds</span></b><p>Does the sums and lists every leak in pounds, biggest first, with the working shown so you can check it.</p></li>
+        <li><span class="num" aria-hidden="true">3</span><span class="who-by hand">a person at Back of House</span><b>Checks</b><p>Looks over what was found, walks you through it, writes your weekly note and holds a monthly review with you.</p></li>
+        <li><span class="num" aria-hidden="true">4</span><span class="who-by hand">you</span><b>Sign</b><p>You, or a manager you name, sign, say no or ask why. Nothing that moves money, pay or people happens until someone signs.</p></li>
+      </ol>
+    </div>
+    <p class="who-then"><b>Then we fix it with your team:</b> menu and costs, rota and sickness cover, training. The software never sends a message, posts, or changes your systems on its own.</p>
+  </div>
+</section>
+
+<!-- No. 03 HOW IT WORKS (deck No. 12; moved up 19 Oct plain rebuild): three stages, then the two-lane ledger, you and us, printed in full (no pin) -->
+<section class="sec how" data-sheet="03" id="how" aria-labelledby="h-how">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="no">No. 03</span>
+      <h2 id="h-how">How it works, step by step.</h2></div>
+      <p class="intro">Three stages. You decide at the end of each one whether to go on.</p>
+    </div>
+    <ol class="stages">
+      <li><span class="num" aria-hidden="true">1</span><b>The audit</b><p>We read your records and hand you one report: every leak in pounds, biggest first. Free for our first venues; you keep the report either way.</p></li>
+      <li><span class="num" aria-hidden="true">2</span><b>A 30-day trial</b><p>You write down a target. It suggests, you run service as normal, and nothing is acted on. Miss the target and you stop, owing nothing more.</p></li>
+      <li><span class="num" aria-hidden="true">3</span><b>Run with you</b><p>Each month: you sign or say no to each suggestion, and we send a weekly note and hold a monthly review.</p></li>
+    </ol>
+    <p class="how-sub">In detail: what you do, and what we do. Seven steps, two decisions, both yours.</p>
+    <div class="how-cols" aria-hidden="true"><span></span><span>You<small>the venue</small></span><span>Us<small>Back of House</small></span></div>
+    <ol class="steps" id="steps"></ol>
+    <p class="foot-note">† Our plan for the visit, not yet run with a customer. ‡ Links built and tested on sample data, not yet live with a venue; until then, downloads. Staff pay data only after the agreement is signed.</p>
+  </div>
+</section>
+
+<!-- No. 04 WHAT IT DOES (new 19 Oct, plain rebuild). One plain line per feature, grouped by what the owner gets. Every line maps to
+     a BUILT+TESTED (SAMPLE) row in 99_FINAL/FEATURE_COVERAGE_2026-10-19.md (rows in brackets in each comment). Prototypes left out here
+     (they stay in the full list, marked). The reputation line is 60_reputation, partly built, marked in build. No new figures. -->
+<section class="sec features" id="features" data-sheet="04" aria-labelledby="h-features">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="no">No. 04</span>
+      <h2 id="h-features">What it does for your venue.</h2></div>
+      <p class="intro">Six jobs, one line each. Tap a heading to see it working.</p>
+    </div>
+    <div class="outs">
+      <!-- rows 19, 35, 115, 112, 178, 182, 183, 39, 65, 38, 40, 47, 48 -->
+      <article class="out">
+        <h3><span class="num" aria-hidden="true">1</span><a href="#audit">Stop money leaking</a></h3>
+        <ul>
+          <li>Finds where you lose money and puts each leak in pounds, biggest first, with the sums.</li>
+          <li>Checks what you really pay in card fees, and that every card payout reaches your bank.</li>
+          <li>Spots money drinks brands owe you before the deadline to claim it passes.</li>
+          <li>Catches supplier prices creeping up, invoice mistakes and short deliveries.</li>
+          <li>Works out what each dish and drink really costs you, and the price that hits your margin.</li>
+        </ul>
+        <a class="out-go" href="#leaks">See it on No. 05 and 06</a>
+      </article>
+      <!-- rows 134, 135, 154, 69, 70, 75, 44, 45, 4 -->
+      <article class="out">
+        <h3><span class="num" aria-hidden="true">2</span><a href="#day">Run the day and night</a></h3>
+        <ul>
+          <li>One message each morning with only what needs you; reply yes or no.</li>
+          <li>During service, a dark screen with only the calls that can’t wait.</li>
+          <li>Kitchen checklists and fridge temperatures on staff phones, with a photo of the probe.</li>
+          <li>Licence renewals and council rules for your address, with reminders.</li>
+          <li>Each night’s takings checked against card and cash, and held if they differ.</li>
+        </ul>
+        <a class="out-go" href="#day">See it on No. 07</a>
+      </article>
+      <!-- rows 170, 7, 9, 196, 197, 11, 200, 198, 199, 157 -->
+      <article class="out">
+        <h3><span class="num" aria-hidden="true">3</span><a href="#people">Staff, rota and pay</a></h3>
+        <ul>
+          <li>Scores the rota you already have against your wage target and your covers.</li>
+          <li>Builds rotas, and finds sickness cover from people who can do the job.</li>
+          <li>Clock-in by PIN, timesheets, holiday and sick pay.</li>
+          <li>Works out pay for you to approve; your payroll provider still files it.</li>
+          <li>Training, right-to-work records, and a handover pack for a new manager.</li>
+        </ul>
+        <a class="out-go" href="#people">See it on No. 08</a>
+      </article>
+      <!-- rows 188, 77, 192, 193, 194, 195 -->
+      <article class="out">
+        <h3><span class="num" aria-hidden="true">4</span><a href="#guests">Guests who come back</a></h3>
+        <ul>
+          <li>Your own booking page, and a host stand on a plan of your floor.</li>
+          <li>A brief before service: who’s in, what they like, what went wrong last time.</li>
+          <li>Replies to your Google reviews, drafted for you to approve.</li>
+          <li>Loyalty, gift cards and a wifi sign-up, with messages only to guests who said yes.</li>
+        </ul>
+        <a class="out-go" href="#guests">See it on No. 09</a>
+      </article>
+      <!-- rows 91, 93, 85, 86, 88, 96, 203; 60_reputation (partly built, no row yet) -->
+      <article class="out">
+        <h3><span class="num" aria-hidden="true">5</span><a href="#socials">Get found, and fill quiet nights</a></h3>
+        <ul>
+          <li>Reads your Instagram, Facebook, TikTok and Google profile once a day. It never posts.</li>
+          <li>Plans next month’s posts, and offers for guests who said yes.</li>
+          <li>Tells you whether a campaign actually made money, from your POS.</li>
+          <li>Ideas for quiet hours, from what other venues already run.</li>
+          <li><span class="tag">in build</span>Your reviews on every site, awards and press, and where you show up on Google and in AI search.</li>
+        </ul>
+        <a class="out-go" href="#reputation">See it on No. 10 and 11</a>
+      </article>
+      <!-- rows 150, 151, 154, 98-100, 110, 103, 104, 112, 188, 196, 201, 202 -->
+      <article class="out">
+        <h3><span class="num" aria-hidden="true">6</span><a href="#oneplace">Fewer tools, one screen</a></h3>
+        <ul>
+          <li>Bookings, guests, staff, social and website on the same records as your POS and accounts.</li>
+          <li>A screen for each role, from owner to bookkeeper, with the working behind every figure.</li>
+          <li>Links to your accounts, POS and card payments that only read.</li>
+          <li>Your website built from your menu, hours and licence.</li>
+        </ul>
+        <a class="out-go" href="#oneplace">See it on No. 12</a>
+      </article>
+    </div>
+    <p class="foot-note">SAMPLE: built and tested on invented sample venues, not yet live with a venue. The line marked <span class="tag">in build</span> is new and not offered yet (No. 11). Everything, prototypes included, is in the full list at the end (No. 17).</p>
+  </div>
+</section>
+
+<!-- No. 05 THE AUDIT (deck No. 03) · Find the money -->
+<section class="sec audit" data-sheet="05" id="audit" aria-labelledby="h-audit">
+  <div class="wrap two">
+    <div>
+      <span class="no">No. 05</span>
+      <h2 id="h-audit">Stop money leaking: it starts with an Opportunity Audit.</h2>
+      <ol class="nlist">
+        <li><span class="num" aria-hidden="true">1</span><span>Every leak in pounds, biggest first.</span></li>
+        <li><span class="num" aria-hidden="true">2</span><span>The sums behind each one, so you can check them.</span></li>
+        <li><span class="num" aria-hidden="true">3</span><span>What to do about it, in plain words.</span></li>
+      </ol>
+      <p class="more">For our first venues the audit is free, and you keep the report either way. We read your bank statements, supplier invoices and bookings too. You mark each finding right, wrong or already knew, and every mark is kept. The last page lists what we couldn’t check, and which records would let us.</p>
+    </div>
+    <figure class="page-fig">
+      <div class="page"><img src="assets/img/audit_finding.jpg" alt="One finding from a sample Opportunity Audit report: spend per head down in early Monday to Friday, with the sums behind it" width="1200" height="868" loading="lazy"></div>
+      <span class="stamp" aria-hidden="true">SAMPLE</span>
+      <figcaption>A real page from our audit report, run on an invented venue.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- No. 06 FIND THE MONEY (deck No. 04). The room picker (was No. 03), then card fees, payouts, brand money: pick a room (pattern: Nick Ho hover-reveal + Portal working interface) -->
+<section class="sec sec-lg leaks" data-sheet="06" id="leaks" aria-labelledby="h-leaks">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="no">No. 06</span>
+      <h2 id="h-leaks">Card fees, brand rebates and supplier prices, checked every week.</h2></div>
+      <p class="intro"><span class="hand try-in">Pick a room.</span> See what we check there, and one finding from an audit report, worked out by our software.</p>
+    </div>
+    <div class="rooms" role="tablist" aria-label="Rooms"></div>
+    <div class="leaks-grid">
+      <div class="leaks-plan">
+        <svg id="plan-leaks" class="plan" viewBox="-10 -10 1030 740" role="img" aria-labelledby="plan-leaks-t"><title id="plan-leaks-t">The same venue. Pick a room above, or tap it on the plan.</title></svg>
+      </div>
+      <div class="ticket-wrap">
+        <article class="chk torn hang ticket" id="ticket" role="tabpanel" aria-live="polite"></article>
+        <span class="stamp ticket-stamp" aria-hidden="true">SAMPLE</span>
+      </div>
+    </div>
+    <!-- 19 Oct (day): the rest of Find the money. 43_payments, 50_brand_deals (SIMULATED Trailer Happiness year, as of 12 Oct 2026:
+         out/trailer_happiness/brand_deals.json, figures as on 38_dashboard v5 Money), 29_costing, 37_supplier. Motion: a rebate claim stamped. -->
+    <div class="money-row">
+      <dl class="pts money-pts">
+        <div><dt>Card fees</dt><dd>What you really pay on each card payment, against the cheaper plans card processors publish. Guests pay the same way.</dd></div>
+        <div><dt>Card payouts</dt><dd>Every card payout traced from the POS to your bank, and each disputed payment with the date you must answer by.</dd></div>
+        <div><dt>Brand money</dt><dd>Money drinks brands owe you (retros, listing fees, free stock), checked against each contract and flagged before the deadline to claim.</dd></div>
+        <div><dt>Menu and buying</dt><dd>What each dish and drink really costs, down to the ice and garnish; supplier prices that creep; and which of your own suppliers is cheapest.</dd></div>
+        <div><dt>Supplier items matched</dt><dd>Each line on a supplier’s invoice matched to the right item on your stock list, so prices compare like for like. You confirm each match, or say no with a reason.</dd></div>
+      </dl>
+      <div class="claim-wrap">
+        <p class="try hand" id="claim-h">Try it: claim a retro before its window closes.</p>
+        <article class="chk torn hang claim" id="claim" aria-labelledby="claim-h">
+          <div class="ch"><b>Brand deals <small>a bar, simulated year</small></b><span class="serial">12 Oct 2026</span></div>
+          <div class="ln lost"><span class="it">Brand A rum, 2026 Q2 retro<small>Earned, never claimed. The window closed on 29 Aug.</small></span><span class="v"><s>£1,433.64</s></span></div>
+          <div class="ln now"><span class="it">Brand A rum, 2026 Q3 retro<small>Claim before 29 Nov: 48 days left</small></span><span class="v"><span class="amt fill">£1,460.16</span></span></div>
+          <div class="ln"><span class="it">Brand D mixers, 2026 Q3 retro<small>Claim before 29 Nov</small></span><span class="v">£76.56</span></div>
+          <div class="ln"><span class="it">Brand B rum: 36 free bottles keyed at full cost<small>Invoice SW-40141. Cost of goods overstated.</small></span><span class="v">£577.44</span></div>
+          <div class="claim-act"><button class="btn btn-sm" type="button" data-claim>Claim the Brand A retro</button></div>
+          <p class="claim-out" role="status"></p>
+          <span class="stamp claim-stamp" aria-hidden="true"></span>
+        </article>
+      </div>
+    </div>
+    <!-- 19 Oct (late): found, signed, banked, as on deck No. 04. 58_outcomes out/venues/copper-hare/found_signed_banked.json (SAMPLE):
+         3 found (£1,535.22 once, £3,729.09 a year, never added), 3 signed (Jane O. owner; Mo GM), 1 banked £1,511.22 (bank credit 15 Oct). -->
+    <div class="fsb" aria-labelledby="fsb-h">
+      <p class="fsb-h" id="fsb-h"><b>Found, signed, banked.</b> A pound counts as banked only with a bank line, a credit note or an invoice dated after the signature.</p>
+      <ol class="fsb-strip">
+        <li><span class="fsb-n">3</span><b>Found</b><small>3 findings with a £ figure we would stand behind: £1,535.22 found once in the documents, £3,729.09 a year if it continues. Two measures, so never added together.</small></li>
+        <li><span class="fsb-n">3</span><b>Signed</b><small>All 3 signed, each with a reason, by <span class="hand who">Jane O.</span> (owner, the card fees) and <span class="hand who">Mo</span> (general manager, a late payout and a refund).</small></li>
+        <li><span class="fsb-n">1</span><b>Banked</b><small><span class="amt fill">£1,511.22</span> banked: a card payout that never reached the bank. Signed 13 Oct; the bank credit came in 15 Oct. 2 signed, not yet evidenced: no bank line, no banked.</small></li>
+      </ol>
+      <figure class="fsb-fig"><div class="browser scroll-x" tabindex="0" aria-label="Monday review screen, scrolls sideways on a phone"><div class="bbar" aria-hidden="true"><i></i><i></i><i></i><span>Back of House · Monday review · The Copper Hare · SAMPLE</span></div><img class="wide" src="assets/img/v6/fsb_review.webp" alt="Found, signed, banked on the Monday review for The Copper Hare (SAMPLE): 3 found, £1,535.22 once and £3,729.09 a year, never added; 3 signed by a named person; 1 banked, £1,511.22 seen arriving, 2 signed and not yet evidenced" width="1600" height="324" loading="lazy"></div><figcaption>The same strip on the Monday review screen.</figcaption></figure>
+    </div>
+    <details class="working shots">
+      <summary>See the real Money, card-payments and brand-deals screens</summary>
+      <div class="shots-grid one">
+        <figure><div class="browser"><div class="bbar" aria-hidden="true"><i></i><i></i><i></i><span>Back of House · Money · SAMPLE</span></div><img src="assets/img/v6/money_statement.webp" alt="Money set as a statement on a sample venue: £37,390 a year leaks in 5 places, ranked by pounds a year with hatched bars, a total of £37,389.97, and bank, card and invoice leads beside it that are never added in" width="1600" height="943" loading="lazy"></div></figure>
+      </div>
+      <div class="shots-grid">
+        <figure><div class="browser"><div class="bbar" aria-hidden="true"><i></i><i></i><i></i><span>Back of House · Money · card takings · SAMPLE</span></div><img src="assets/img/v5/payments_top.jpg" alt="Card takings, fees, payouts and the bank on an invented venue: a waterfall from POS card takings to banked, and card fees of 1.79% against published plans" width="1400" height="536" loading="lazy"></div></figure>
+        <figure><div class="browser"><div class="bbar" aria-hidden="true"><i></i><i></i><i></i><span>Back of House · Money · brand deals · SIMULATED</span></div><img src="assets/img/v5/brand_claims.jpg" alt="Brand deals on a simulated bar: a retro lost when its window closed, retros to claim now, and free stock keyed at full cost" width="1400" height="534" loading="lazy"></div></figure>
+      </div>
+      <p class="src">Real screens from our software, shot 19 Oct. Cropped; nothing retouched.</p>
+    </details>
+    <p class="foot-note">SAMPLE: invented venues with made-up history; brand deals from a simulated year for a bar. Pounds are never added across leaks, and nothing changes until you sign. Built and tested on sample data, not yet live.</p>
+  </div>
+</section>
+
+<!-- No. 07 A NORMAL DAY (deck No. 05) · Run the night. 19 Oct: chapter 5 service mode; the sign card moved here from the old No. 06. Tap a moment and the thread plays; no pin, no scroll-scrub. -->
+<section class="sec day" data-sheet="07" id="day" aria-labelledby="h-day">
+  <div class="wrap day-grid">
+    <div class="day-copy">
+      <span class="no">No. 07</span>
+      <h2 id="h-day">Run the day and night: what a normal day looks like.</h2>
+      <div class="chapters" id="chapters" role="tablist" aria-label="Five moments in a day">
+        <button class="chap" type="button" role="tab" id="ch-0" data-ch="0" aria-controls="phone" aria-selected="true"><span class="cn" aria-hidden="true">1</span><span class="who hand">for you</span><b>Each morning: what needs you.</b></button>
+        <button class="chap" type="button" role="tab" id="ch-1" data-ch="1" aria-controls="phone" aria-selected="false" tabindex="-1"><span class="cn" aria-hidden="true">2</span><span class="who hand">for you</span><b>Approve with a word. Say no, and it asks why.</b></button>
+        <button class="chap" type="button" role="tab" id="ch-2" data-ch="2" aria-controls="phone" aria-selected="false" tabindex="-1"><span class="cn" aria-hidden="true">3</span><span class="who hand">for the floor</span><b>Before service: who’s in tonight.</b></button>
+        <button class="chap" type="button" role="tab" id="ch-3" data-ch="3" aria-controls="phone" aria-selected="false" tabindex="-1"><span class="cn" aria-hidden="true">4</span><span class="who hand">for the kitchen</span><b>Checklists on staff phones.</b></button>
+        <button class="chap" type="button" role="tab" id="ch-4" data-ch="4" aria-controls="phone" aria-selected="false" tabindex="-1"><span class="cn" aria-hidden="true">5</span><span class="who hand">for the duty manager</span><b>During service: a dark screen, and only what needs you now.</b></button>
+      </div>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone" id="phone" role="tabpanel" aria-labelledby="ch-0" aria-live="polite">
+        <div class="screen s-owner" data-screen="0">
+          <div class="bar">Back of House<span>WhatsApp</span></div>
+          <div class="msgs">
+            <div class="m" data-step="0"><span class="h">NEEDS YOU</span>
+              <span class="r"><span class="dot"></span><b>1.</b> Staff A03 – alcohol licence expires in 5 days</span>
+              <span class="r"><span class="dot"></span><b>3.</b> checklist ‘fire safety weekly’ overdue</span>
+              <span class="r"><span class="dot"></span><b>5.</b> close for Thu 8 Oct is on hold. Takings and payments differ by £183.26</span>
+              <i>Reply YES 1 to approve, or NO 1 because &lt;reason&gt; to turn it down.</i></div>
+            <div class="m in" data-step="1">yess 5</div>
+            <div class="m" data-step="2">Approved item 5: close for Thu 8 Oct is on hold. Takings and payments differ by £183.26.</div>
+            <div class="m in" data-step="3">NO 7</div>
+            <div class="m" data-step="4">I need a reason to turn item 7 down, so the record shows why. Reply NO 7 because &lt;reason&gt;. Nothing has been changed.</div>
+          </div>
+        </div>
+        <div class="screen s-paper" data-screen="2">
+          <div class="t">Pre-shift guest brief</div><div class="sub">Friday 16 October · for the service team</div>
+          <div class="sec-h">WHO’S IN, SAY HELLO BY NAME</div>
+          <div class="row" data-step="5">19:00 Maria L x2 table 12: 20th visit. usual: Aperol spritz, extra ice; likes: window table</div>
+          <div class="sec-h">CELEBRATING</div>
+          <div class="row cel" data-step="6">19:00 Maria L x2 table 12: birthday. A card or a quiet word, not a song.</div>
+          <div class="sec-h">LAST TIME IT WENT WRONG</div>
+          <div class="row wr" data-step="7">20:30 Luca F x2 table 7: Cold chips. Remade, dessert on us. Be warm, don’t make a thing of it.</div>
+        </div>
+        <div class="screen s-kitchen" data-screen="3">
+          <div class="bar">Back of House<span>WhatsApp</span></div>
+          <div class="msgs">
+            <div class="m" data-step="8">Hi Ravi – your list for Fri 09 Oct (Kitchen).<span class="r">5. 10:00 Fridge temperature: Walk-in fridge (needs a reading)</span><i>Reply DONE &lt;number&gt; when each is finished.</i></div>
+            <div class="m in" data-step="9">done 5 at 9.4c</div>
+            <div class="m" data-step="10">Ravi, 9.4C is outside the safe range for Fridge temperature: Walk-in fridge – thanks for checking it. … The manager has been told.</div>
+          </div>
+        </div>
+        <!-- 19 Oct (late): service mode re-set from 38_dashboard v6.1 #/service at 390 (frozen scratch server :8842, assets/img/v6/service_phone.webp):
+             stainless at night, only the check stays lit (paper). SAMPLE showcase, Site Alpha, Fri 9 Oct 21:00. Check No. 4 as on Today. -->
+        <div class="screen s-service" data-screen="4">
+          <div class="sv-top"><span>Service · Site Alpha</span><span class="sv-who"><span class="ini hand" aria-hidden="true">SK</span>Sam K. · on shift</span></div>
+          <p class="sv-time">21:00</p>
+          <p class="sv-quiet">Fri 9 Oct · the owner is not messaged during service</p>
+          <div class="sv-kpi"><div><span>Sales</span><b>£8,032</b><small>£1,969 behind last year</small></div><div><span>Labour</span><b>29.3%</b><small>ceiling 32%</small></div><div><span>Covers to come</span><b>60</b><small>A 40 · B 20 · C 0</small></div></div>
+          <p class="sv-now" data-step="11">Needs a call now · 3 <span>23 wait for the morning message</span></p>
+          <div class="sv-rail" aria-hidden="true"></div>
+          <div class="sv-card" data-step="12"><p class="sv-k">Food safety and licences · Site Bravo <span>No. 4</span></p><p class="sv-t">Site Bravo: fridge reading 9.2°C, outside 0 to 5°C</p><p class="sv-r">Risk: high</p><p class="sv-w">Waiting for Ravi P. (head chef) or Tom B. (general manager) or Jane O. (owner).</p><p class="sv-w">A food safety check cannot wait during service.</p></div>
+          <p class="sv-line" data-step="13">Runs out tonight: Gin 70cl <b>0.6 days</b></p>
+          <p class="sv-line" data-step="14">Lemons 1kg <b>0.7 days</b></p>
+          <div class="sv-bar" aria-hidden="true"><span>Say no</span><span class="on">Hold to sign · No. 4</span></div>
+        </div>
+      </div>
+      <span class="stamp day-stamp" aria-hidden="true">SAMPLE</span>
+    </div>
+    <!-- 19 Oct (late): the rail and the spike (38 v6). Check No. 7 as on 38_dashboard v6 Today and Service, word for word (names from the
+         people register: Pia L., Quin T., Maya R., Sam K., Jane O.). Printed values; biro only for the signature and a reason. -->
+    <div class="sign-wrap">
+        <p class="try hand" id="sign-h">Try it: take the check off the rail.</p>
+        <div class="rail" id="rail" aria-label="On the rail: checks waiting for a person">
+          <div class="rail-head"><b>On the rail · <span id="rail-n">3</span> need someone now</b><span class="spike" id="spike"><i aria-hidden="true"></i>On the spike: <span data-k="signed">0</span> signed · <span data-k="no">0</span> said no · 6 cleared on their own</span></div>
+          <div class="rail-bar" aria-hidden="true"></div>
+          <ul class="stubs" id="stubs">
+            <li class="stub" data-no="4"><b>No. 4</b> Now · Safety</li>
+            <li class="stub is-up" data-no="7"><b>No. 7</b> Now · Floor</li>
+            <li class="stub" data-no="10"><b>No. 10</b> Now · Swap</li>
+          </ul>
+        </div>
+        <article class="chk torn signcard" id="signcard" aria-labelledby="sign-h">
+          <div class="ch"><span class="area">Floor · Site Alpha <span class="now">Now</span></span><span class="serial">No. 7</span></div>
+          <p class="f-title">Section C is empty: move one server, send one home</p>
+          <div class="ln"><span class="it">Move Pia L. from Section C to Section A</span></div>
+          <div class="ln"><span class="it">Send Quin T. home from Section C: £13.50/h × 3.0 h = £40.50</span></div>
+          <div class="ln"><span class="it">Covers still to come: A 40, B 20, C 0 (1 server per 12 covers)</span></div>
+          <div class="tot"><span class="lab">Labour cost released if signed</span><span class="amt fill">£40.50</span></div>
+          <p class="waiting">Waiting for Maya R. (general manager) or Sam K. (duty manager) or Jane O. (owner).</p>
+          <p class="as"><span class="as-l">Sign here</span><span class="as-r">duty manager</span><span class="sig hand" aria-hidden="true">Sam K.</span></p>
+          <div class="sign-act">
+            <button class="btn btn-sm hold" type="button" data-sign="yes"><span class="hold-ink" aria-hidden="true"></span><span class="hold-t">Hold to sign</span></button>
+            <button class="btn btn-sm btn-ghost" type="button" data-sign="no">Say no</button>
+            <button class="linkbtn" type="button" data-sign="later">Not now</button>
+            <button class="linkbtn" type="button" data-sign="why" aria-expanded="false" aria-controls="sign-why">Why</button>
+          </div>
+          <p class="why" id="sign-why" hidden>The working: covers still to come in each section come from tonight’s bookings; 1 server per 12 covers is the venue’s own rule; Quin T.’s rate and hours left come from the rota. Signing changes tonight’s rota and nothing else.</p>
+          <form class="sign-no" hidden>
+            <label for="sign-reason">Why not?</label>
+            <div class="sign-no-row"><input id="sign-reason" type="text" autocomplete="off" placeholder="Your reason"><button class="btn btn-sm" type="submit">Send</button></div>
+          </form>
+          <p class="sign-out" role="status"></p>
+          <p class="reason hand" aria-hidden="true"></p>
+          <span class="stamp sign-stamp" aria-hidden="true"></span>
+        </article>
+      </div>
+  </div>
+  <div class="wrap">
+    <dl class="pts day-pts">
+      <div><dt>Probe photos with the readings.</dt><dd>A fridge or food temperature can carry a photo of the probe. A photo used twice is caught, the GM re-probes a few at random, and a big gap needs a second person to sign.</dd></div>
+      <div><dt>Friday and Saturday dinner.</dt><dd>Where dinner stops speeding up as covers rise, at the kitchen or the bar, read from your ticket times. A watch item: no pounds claimed. It runs where your POS export carries ticket times.</dd></div>
+      <div><dt>Licences, wherever you trade.</dt><dd>Renewal dates and notices for England and Wales, and now Scotland and Northern Ireland. Whether your address sits in a cumulative impact zone (an area where the council limits new licences), for the councils we have read; where a council publishes only a map, we say we can’t tell.</dd></div>
+    </dl>
+    <details class="working shots">
+      <summary>See the real Today and service screens</summary>
+      <div class="shots-grid one">
+        <figure><div class="browser"><div class="bbar" aria-hidden="true"><i></i><i></i><i></i><span>Back of House · Today · SAMPLE</span></div><img src="assets/img/v6/today_rail.webp" alt="Today on a laptop for a sample group of three sites at 21:00: 3 need someone on shift now, 23 wait for the morning; the checks hang from the rail, each with Hold to sign, Say no, Not now and Why" width="1600" height="777" loading="lazy"></div></figure>
+        <figure><div class="browser is-night"><div class="bbar" aria-hidden="true"><i></i><i></i><i></i><span>Back of House · Service · SAMPLE</span></div><img src="assets/img/v6/service_night.webp" alt="Service mode at 21:00 on a laptop: a dark screen with the clock, sales, labour and covers to come, one lit paper check in the middle, and the floor plan by section" width="1600" height="800" loading="lazy"></div></figure>
+      </div>
+      <p class="src">Real screens from our software, shot 19 Oct 2026. Cropped; nothing retouched.</p>
+    </details>
+  </div>
+  <p class="wrap foot-note">SAMPLE: invented venues, staff and guests. Messages as our software wrote them; none sent to a real phone. The rail, the check and service mode here are demonstrations and send nothing. Built and tested on sample data, not yet live.</p>
+</section>
+
+<!-- No. 08 YOUR PEOPLE (deck No. 06). 53_people (714 tests): payslip S03 Cara, out/demo/payslip_S03_Cara.html, figures verbatim
+     (£1,639.95 + £348.00 + £477.37 = £2,465.32; less £283.40, £113.38, £58.72 = £2,009.82). Motion: a payslip that writes itself. -->
+<section class="sec people" data-sheet="08" id="people" aria-labelledby="h-people">
+  <div class="wrap two people-grid">
+    <div>
+      <span class="no">No. 08</span>
+      <h2 id="h-people">Rota, hours, holiday and pay, on one set of records.</h2>
+      <dl class="pts">
+        <div><dt>Rotas</dt><dd>Balanced against your wage ceiling, stronger staff beside newer ones, and sickness cover from people who can do the job.</dd></div>
+        <div><dt>Clock-in and timesheets</dt><dd>A PIN to clock in. Hours against the rota, paid for the minutes worked, approved by a named manager.</dd></div>
+        <div><dt>Holiday, sickness and the rules</dt><dd>Holiday accrual, SSP and working-time limits, including the under-18 rules.</dd></div>
+        <div><dt>Pay worked out</dt><dd>From hours worked to take-home pay, checked against HMRC’s own test data. You approve it; your payroll provider still files it.</dd></div>
+        <div><dt>Records and training</dt><dd>Right-to-work records, onboarding, training paths and certificates.</dd></div>
+        <div><dt>Staff keep their own skills record</dt><dd>Skill levels a named manager set, with the reason, and the courses they finished. It only goes up, holds nothing negative, and anyone can check it hasn’t been changed.</dd></div>
+        <div><dt>A handover pack for a new manager</dt><dd>What is open, dates not to miss, decisions already made and why, the rota rules, suppliers, who can do what, and the regulars, from the venue’s own record.</dd></div>
+      </dl>
+    </div>
+    <div class="slip-wrap">
+      <p class="try hand" id="slip-h">Try it: work out one payslip.</p>
+      <article class="chk torn hang slip" id="slip" aria-labelledby="slip-h">
+        <div class="ch"><b>Payslip <small>Cara · supervisor</small></b><span class="serial">No. 1096</span></div>
+        <p class="slip-meta">September 2026 · paid 2 October · tax code 1257L · NI letter A</p>
+        <div class="ln"><span class="it">Hours worked<small>113.10 h × £14.50, from approved timesheets</small></span><span class="v w">£1,639.95</span></div>
+        <div class="ln"><span class="it">Holiday pay<small>24.00 h × £14.50</small></span><span class="v w">£348.00</span></div>
+        <div class="ln"><span class="it">Tips and service charge<small>Tips Act allocation</small></span><span class="v w">£477.37</span></div>
+        <div class="ln sub"><span class="it">Gross pay</span><span class="v w">£2,465.32</span></div>
+        <div class="ln"><span class="it">Income Tax (PAYE)</span><span class="v w">–£283.40</span></div>
+        <div class="ln"><span class="it">National Insurance</span><span class="v w">–£113.38</span></div>
+        <div class="ln"><span class="it">Pension</span><span class="v w">–£58.72</span></div>
+        <div class="ln tot"><span class="it">Take-home pay</span><span class="v w">£2,009.82</span></div>
+        <p class="slip-check w">Minimum wage: £14.50 an hour against £12.71. Met.</p>
+        <div class="slip-act"><button class="btn btn-sm" type="button" data-slip="run">Work out pay</button><button class="btn btn-sm btn-ghost" type="button" data-slip="cert">Certify</button></div>
+        <p class="slip-out" role="status"></p>
+        <span class="stamp slip-stamp" aria-hidden="true"></span>
+      </article>
+    </div>
+  </div>
+  <!-- 19 Oct (late): 59_rota_score, sample output out/sample/rota_score.html (The Copper Hare SAMPLE, rota Mon 12 to Sun 18 Oct 2026):
+       0 of 4 clear; labour 36.6% of net sales against 32%, £609.81 over; 30.5 staff-hours over; 5 of 16 shifts with a skill gap;
+       working time 3 breaches, 3 to check. Labour excludes employer NI, pension and holiday pay (59 README, honest limits). -->
+  <div class="wrap rota" aria-labelledby="h-rota">
+    <div class="rota-copy">
+      <h3 id="h-rota">Score the rota you already have.</h3>
+      <p>Bring one week’s rota and that week’s sales. You get one page back, scored on four things: labour against your wage ceiling, staff hours against the covers hour by hour, the skill mix on each shift, and working-time rules and the pay floor. Every figure shows its working.</p>
+      <div class="chk torn hang rota-chk">
+        <div class="ch"><b>Your rota, scored <small>an invented pub</small></b><span class="serial">No. 0059</span></div>
+        <div class="ln"><span class="it">Labour against the wage ceiling<small>36.6% of net sales against 32%</small></span><span class="v">£609.81 over</span></div>
+        <div class="ln"><span class="it">Hours against covers, hour by hour</span><span class="v">30.5 h over</span></div>
+        <div class="ln"><span class="it">Skill mix per shift</span><span class="v">5 of 16 short</span></div>
+        <div class="ln"><span class="it">Working time and pay floor</span><span class="v">3 breaches</span></div>
+        <div class="tot"><span class="lab">Clear</span><span class="v">0 of 4</span></div>
+      </div>
+      <p class="rota-note">Worked out on one computer from the files; nothing is sent. The labour figure leaves out employer NI, pension and holiday pay for now, and we have tested it on sample rotas, not yet on each rota system’s own layout.</p>
+    </div>
+    <figure class="rota-fig">
+      <div class="browser"><div class="bbar" aria-hidden="true"><i></i><i></i><i></i><span>Back of House · Rota · The Copper Hare · SAMPLE</span></div><img src="assets/img/v6/rota_panel.webp" alt="Score your rota on the Rota screen for The Copper Hare (SAMPLE), week of 12 Oct 2026: 0 of 4 clear; look at these first, starting with labour at 36.6% of net sales against a 32% ceiling, £609.81 over for the week; and an hour-by-hour grid of people on against the covers" width="1600" height="700" loading="lazy"></div>
+      <figcaption>Score your rota on our Rota screen.</figcaption>
+      <details class="working shots">
+        <summary>See the page it prints</summary>
+        <div class="page flat"><img src="assets/img/v6/rota_score.webp" alt="The first screen of the printed rota score for an invented pub: Labour ran £609.81 over your ceiling, with a check scoring four areas, 0 of 4 clear" width="1600" height="813" loading="lazy"></div>
+        <div class="page flat"><img src="assets/img/v6/rota_hours.webp" alt="Hours against covers, hour by hour, for the same sample week, on the printed page" width="1600" height="1019" loading="lazy"></div>
+      </details>
+    </figure>
+  </div>
+  <div class="wrap">
+    <details class="working shots">
+      <summary>See the real Team screen</summary>
+      <div class="shots-grid one">
+        <figure><div class="browser"><div class="bbar" aria-hidden="true"><i></i><i></i><i></i><span>Back of House · Team · SAMPLE</span></div><img src="assets/img/v5/team_top.jpg" alt="Team screen on an invented venue: who is clocked in tonight, and a week of timesheets against the rota, each difference approved by a named manager" width="1400" height="937" loading="lazy"></div></figure>
+      </div>
+    </details>
+    <p class="foot-note">SAMPLE: invented people at invented venues. The payslip is a calculation; nothing is reported to HMRC, and your payroll provider still files. Templates not yet reviewed by a solicitor. Built and tested on sample data, not yet live.</p>
+  </div>
+</section>
+
+<!-- No. 09 YOUR GUESTS (deck No. 07). 51_bookings host stand (The Lamb & Anchor SAMPLE, Fri 16 Oct 19:30), read from 38_dashboard
+     /api/m/bookings on 19 Oct: tables with plan positions, states, next bookings, arriving and waitlist. Motion: the host stand. -->
+<section class="sec guests" data-sheet="09" id="guests" aria-labelledby="h-guests">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="no">No. 09</span>
+      <h2 id="h-guests">Every booking, regular and review, in one guest list.</h2></div>
+      <p class="intro">Your own booking page and host stand, the pre-shift brief, reviews answered in drafts you approve, loyalty and gift cards. Only guests who said yes get a message.</p>
+    </div>
+    <div class="hs-grid">
+      <div class="hs" id="hs">
+        <p class="try hand">Try it: run the door.</p>
+        <div class="hs-top"><span>The Lamb &amp; Anchor · Friday, 19:30</span><span>Seated now <b id="hs-seated">36</b> covers</span></div>
+        <div class="hs-scroll" tabindex="0" aria-label="Floor plan, scrolls sideways on a phone"><svg id="hs-plan" class="hs-plan" viewBox="-2 -2 104 48" role="img" aria-labelledby="hs-plan-t"><title id="hs-plan-t">Floor plan of a pub: dining room, snug and bar, each table seated, held or free</title></svg></div>
+        <p class="hs-key" aria-hidden="true"><span class="k seated">seated</span><span class="k needs">needs you</span><span class="k held">held for a booking</span><span class="k free">free</span></p>
+      </div>
+      <div class="hs-side">
+        <article class="chk torn hang hs-ticket" id="hs-ticket" aria-live="polite">
+          <div class="ch"><b>Arriving</b><span class="serial">19:45</span></div><p class="f-title">Priya R., party of 4, booked for S1 in the snug.</p><p class="hs-n">S1 is held for them.</p><div class="hs-act"><button class="btn btn-sm" type="button">Seat Priya R. at S1</button></div>
+        </article>
+        <span class="stamp hs-stamp" aria-hidden="true"></span>
+        <dl class="pts guest-pts">
+          <div><dt>Before service</dt><dd>The pre-shift brief tells the team who the regulars are, what they celebrate, and what went wrong last time.</dd></div>
+          <div><dt>Reviews, loyalty and gift cards</dt><dd>Google reviews answered in drafts you approve, points or stamps, and gift cards kept as money held for guests.</dd></div>
+          <div><dt>Asked first</dt><dd>The wifi sign-up and every campaign reach only guests who said yes.</dd></div>
+        </dl>
+      </div>
+    </div>
+    <details class="working shots">
+      <summary>See the real host stand and guest screens</summary>
+      <div class="shots-grid">
+        <figure><div class="browser"><div class="bbar" aria-hidden="true"><i></i><i></i><i></i><span>Back of House · Bookings · SAMPLE</span></div><img src="assets/img/v6/host_plan.webp" alt="The host stand floor plan at 19:30 on an invented Friday, drawn from the bookings module's own table positions: seated tables on check paper with who and when they are due out, two tables in solid ink that need someone, held tables dashed and free tables outlined" width="1200" height="685" loading="lazy"></div></figure>
+        <figure><div class="browser"><div class="bbar" aria-hidden="true"><i></i><i></i><i></i><span>Back of House · Guests · SAMPLE</span></div><img src="assets/img/v5/crm_stage.jpg" alt="Guests by stage on an invented pub: new, first, returning, regular and lapsed, and groups with how many may be emailed or texted" width="1246" height="1064" loading="lazy"></div></figure>
+      </div>
+    </details>
+    <p class="foot-note">SAMPLE: invented guests and bookings; the plan above seats nobody. Deposits are simulated; no card is taken online. Nothing sent or posted. Built and tested on sample data, not yet live.</p>
+  </div>
+</section>
+
+<!-- No. 07 SOCIALS (deck No. 07, rebuilt 18 Oct around linked socials: 40_socials read-only, never posts).
+     Tab 1 picture: 33_client_deck/assets/dash_mkt_accounts_clean.png. Tab 2: 35_marketing out/gastropub/next_month_calendar.csv
+     (content.js). Tab 3: Wine Wednesday, 35 report p.3 / 38_dashboard "Did it pay?" (same GP figures); platform count from the
+     dashboard crop the deck uses (dash_mkt_didpay.png: 8 posts, reach 5,351, views 10,616). -->
+<section class="sec mkt" data-sheet="10" id="socials" aria-labelledby="h-mkt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="no">No. 10</span>
+      <h2 id="h-mkt">Get found, and fill quiet nights: your socials, checked against your POS.</h2></div>
+    </div>
+    <div class="mkt-tabs" role="tablist" aria-label="Socials and quiet nights, four parts">
+      <button class="room-btn" type="button" role="tab" id="mt-0" aria-controls="mp-0" aria-selected="true"><span class="num" aria-hidden="true">1</span>Link your accounts</button>
+      <button class="room-btn" type="button" role="tab" id="mt-1" aria-controls="mp-1" aria-selected="false" tabindex="-1"><span class="num" aria-hidden="true">2</span>Campaigns from your guest list</button>
+      <button class="room-btn" type="button" role="tab" id="mt-2" aria-controls="mp-2" aria-selected="false" tabindex="-1"><span class="num" aria-hidden="true">3</span>Did it make money?</button>
+      <button class="room-btn" type="button" role="tab" id="mt-3" aria-controls="mp-3" aria-selected="false" tabindex="-1"><span class="num" aria-hidden="true">4</span>Ideas for your quiet hours</button>
+    </div>
+
+    <div class="mkt-panel" id="mp-0" role="tabpanel" aria-labelledby="mt-0">
+      <div class="mkt-copy">
+        <ul class="mkt-list">
+          <li>Connect Instagram, Facebook, TikTok and Google Business Profile once, on each platform’s own sign-in page.</li>
+          <li>We read reach, views, calls and bookings, once a day.</li>
+          <li>Read-only: we never post.</li>
+        </ul>
+      </div>
+      <figure class="mkt-fig">
+        <div class="browser scroll-x" tabindex="0" aria-label="Connected accounts screen, scrolls sideways">
+          <div class="bbar" aria-hidden="true"><i></i><i></i><i></i><span>Back of House · Marketing &amp; Socials · SAMPLE</span></div>
+          <img class="wide" src="assets/img/dash_mkt_accounts_clean.png" alt="Connected accounts: Instagram, Facebook Page and Google Business Profile connected for an invented venue, TikTok not connected, each card listing what it pulls and when it next syncs." width="1192" height="436" loading="lazy">
+        </div>
+        <span class="stamp mkt-stamp" aria-hidden="true">SAMPLE</span>
+        <figcaption>Real screen from our software.</figcaption>
+      </figure>
+    </div>
+
+    <div class="mkt-panel" id="mp-1" role="tabpanel" aria-labelledby="mt-1" hidden>
+      <div class="mkt-copy">
+        <ul class="mkt-list">
+          <li>Regulars who have stopped coming, birthdays and first-timers, from your guest list.</li>
+          <li>Next month’s posts, each with a caption, a photo note and what to tell the table.</li>
+          <li>Drafted for your yes. Only guests who said yes get a message.</li>
+          <li>Each post checked for alcohol and ad-disclosure rules and signed by a named person. Posting stays off until each platform approves our app.</li>
+        </ul>
+        <p class="mkt-status hand">Pick a day, then approve it.</p>
+      </div>
+      <figure class="mkt-fig">
+        <div class="chk cal">
+          <div class="ch"><b>November plan</b><span class="serial">pick a post</span></div>
+          <div class="cal-grid" role="group" aria-label="November posts">
+            <span class="dow">Mon</span><span class="dow">Tue</span><span class="dow">Wed</span><span class="dow">Thu</span><span class="dow">Fri</span><span class="dow">Sat</span><span class="dow">Sun</span>
+          </div>
+          <div class="post-card" id="post-card" aria-live="polite"></div>
+        </div>
+        <span class="stamp mkt-stamp" aria-hidden="true">SAMPLE</span>
+        <figcaption>Our planner’s November. Nothing posted.</figcaption>
+      </figure>
+    </div>
+
+    <div class="mkt-panel" id="mp-2" role="tabpanel" aria-labelledby="mt-2" hidden>
+      <div class="mkt-copy">
+        <ul class="mkt-list">
+          <li>Each campaign gets its own POS item or code word, so staff ring it in.</li>
+          <li>We count the extra gross profit after food cost, discount and spend.</li>
+          <li>Platform numbers are attention, not proof. If we can’t tell, we say so.</li>
+        </ul>
+      </div>
+      <figure class="mkt-fig">
+        <div class="chk torn roi">
+          <div class="ch"><b>Wine Wednesday, boosted on Instagram</b><span class="serial">POS item WED-WINE-GLASS</span></div>
+          <p class="settle">Wednesday dinner, 4 weeks, against Tuesday dinner (chosen before launch). Rung in 29 times.</p>
+          <div class="ln"><span class="it">Extra gross profit on Wednesday dinner<small>after VAT, food cost and discount (£0.00 given)</small></span><span class="v">–£194.78<small>range –£1,140.37 to £1,045.52</small></span></div>
+          <div class="ln"><span class="it">less spend</span><span class="v">–£80.00</span></div>
+          <div class="ln"><span class="it">less staff time</span><span class="v">–£42.00</span></div>
+          <div class="ln tot"><span class="it">After costs</span><span class="v">–£316.78<small>range –£1,262.37 to £923.52</small></span></div>
+          <div class="verdicts" aria-label="The verdict is one of three"><span>Paid for itself</span><span>Didn’t pay</span><span class="on">Can’t tell</span></div>
+          <p class="settle">The range runs from a loss to a gain, so the POS cannot say which. To settle it: more campaign weeks, or weeks on and off. This test only sees a change bigger than £225.54 a week.</p>
+          <p class="plat"><span class="tag">not proof</span>Instagram’s own count: 8 posts carrying the code word, reach 5,351, views 10,616. None of it enters the result.</p>
+        </div>
+        <span class="stamp mkt-stamp" aria-hidden="true">SAMPLE</span>
+        <figcaption>As our software wrote it.</figcaption>
+      </figure>
+    </div>
+
+    <!-- 19 Oct (day): 56_growth_engine strategy cards for The Copper Hare (SAMPLE), as shown on 38_dashboard v5 #/growth. Third-party survey
+         figures on the cards are left out here (their sources sit in the software's working). Motion: a strategy card dealt. -->
+    <div class="mkt-panel" id="mp-3" role="tabpanel" aria-labelledby="mt-3" hidden>
+      <div class="mkt-copy">
+        <ul class="mkt-list">
+          <li>Nights and offers other venues already run, read from their own menus and websites.</li>
+          <li>Matched to your slow slots on the POS, your guests and your street, and checked against your licence.</li>
+          <li>Each one is a test with no promised figure, until four closed weeks of your POS say whether it paid.</li>
+        </ul>
+      </div>
+      <figure class="mkt-fig">
+        <div class="deal" id="deal" aria-live="polite">
+          <article class="chk idea" data-i="0"><div class="ch"><b>Pre-show and post-show table</b><span class="serial">Idea 1</span></div><p class="id-slot">Tuesday, 20:00 to 23:00</p><p>Guests holding a ticket for a nearby show get a held table and a food item in the hour before or after it.</p><h3>Why it fits</h3><ul><li>A slow slot on this venue’s POS.</li><li>Shows nearby on that evening.</li></ul><h3>A person checks first</h3><ul><li>Licensed hours, Google post rules, and an “Ad” label on anything gifted.</li></ul><p class="id-h"><span class="tag">hypothesis</span>No figure until four closed weeks of your POS say whether it paid. Draft: nobody has signed it.</p></article>
+          <article class="chk idea" data-i="1"><div class="ch"><b>Low and no session</b><span class="serial">Idea 2</span></div><p class="id-slot">Monday, 21:00 to 23:00</p><p>Alcohol-free and half-strength serves, in the same glassware and at the same price as the full-strength list.</p><h3>Why it fits</h3><ul><li>A slow slot on this venue’s POS.</li><li>Mixed groups where someone isn’t drinking.</li></ul><h3>A person checks first</h3><ul><li>Alcohol advertising rules: the copy must not suggest it lets others drink more.</li></ul><p class="id-h"><span class="tag">hypothesis</span>No figure until four closed weeks of your POS say whether it paid. Draft: nobody has signed it.</p></article>
+          <article class="chk idea" data-i="2"><div class="ch"><b>Community night</b><span class="serial">Idea 3</span></div><p class="id-slot">Monday, 21:00 to 23:00</p><p>A local organisation hosts a night at the venue and receives a fixed sum for each sharing serve sold.</p><h3>Why it fits</h3><ul><li>A slow slot on this venue’s POS.</li><li>Local groups that already meet nearby.</li></ul><h3>A person checks first</h3><ul><li>Noise conditions on the licence, and how much of each sale goes to the cause.</li></ul><p class="id-h"><span class="tag">hypothesis</span>No figure until four closed weeks of your POS say whether it paid. Draft: nobody has signed it.</p></article>
+        </div>
+        <div class="deal-act"><button class="btn btn-sm" type="button" id="deal-next">Deal the next idea</button></div>
+        <span class="stamp mkt-stamp deal-stamp" aria-hidden="true">SAMPLE</span>
+        <figcaption>Three ideas our software drew up. Nothing is posted, booked or paid for.</figcaption>
+      </figure>
+    </div>
+    <p class="foot-note">SAMPLE: built and tested on invented accounts in each platform’s published format. Live linking needs Meta, TikTok and Google to approve our app: not yet applied for. Nothing posted or sent.</p>
+  </div>
+</section>
+
+<!-- No. 11 REPUTATION AND SEARCH (new 19 Oct, plain rebuild). 60_reputation, partly built 19 Oct (memory/HANDOFF.md: "module exists
+     (partial)"; tests/ empty; no README). Described from the code only: cli.py (pull, pull-competitors, analyse, web-audit, rank),
+     pull/platforms.py, signals.py, themes.py, web/audit.py, web/rank.py, web/nap.py, fetch.py. Blocked sites from out/trailer_happiness/platforms.json
+     (tripadvisor, opentable: blocked); engines that did not answer from rank/snapshot_20261019T145813Z.json (summary: unverified). fixpack and report are named in cli.py but
+     their files do not exist: listed as not built. No figures from its runs are shown; no venue is named. -->
+<section class="sec rep" data-sheet="11" id="reputation" aria-labelledby="h-rep">
+  <div class="wrap two rep-grid">
+    <div>
+      <span class="no">No. 11</span>
+      <h2 id="h-rep">Your reviews, and how you show up when people search.</h2>
+      <p class="intro">New, and still being built. It reads what the public can already see about your venue, and how Google and AI search tools see your website.</p>
+      <dl class="pts">
+        <div><dt>Reviews on every site</dt><dd>Your public reviews on Google, Yelp, DesignMyNight, Time Out and other sites: how your rating is moving, what guests praise and complain about most, and how often you reply. Where a site blocks us, as Tripadvisor and OpenTable did on the first runs, it says so rather than guess.</dd></div>
+        <div><dt>Beside your neighbours</dt><dd>The same read, lighter, for the venues near you that guests compare you with.</dd></div>
+        <div><dt>Awards, lists and press</dt><dd>Where your venue has been listed, reviewed or written about, each with its link.</dd></div>
+        <div><dt>Where you show up in search</dt><dd>For the searches guests type, such as your kind of venue plus your area: your place on Google Maps, Google, Bing, Apple Maps and an AI answer page, dated each time so you can see it move. When a search engine won’t answer, the result is marked unknown, never guessed.</dd></div>
+        <div><dt>Your website, read like a search engine</dt><dd>Whether Google and AI tools such as ChatGPT are allowed in, whether they can read your address, hours, phone and menu prices, and whether those match what other sites say about you.</dd></div>
+      </dl>
+    </div>
+    <div class="rep-side">
+      <article class="chk torn hang rep-chk" aria-labelledby="rep-h">
+        <div class="ch"><b id="rep-h">How the public sees you <small>what it reads</small></b><span class="serial">No. 0060</span></div>
+        <div class="ln"><span class="it">Reviews, site by site<small>read at a person’s pace, never logged in</small></span><span class="v">read</span></div>
+        <div class="ln"><span class="it">A site that blocks us</span><span class="v">says so</span></div>
+        <div class="ln"><span class="it">Awards, lists and press</span><span class="v">with links</span></div>
+        <div class="ln"><span class="it">Google Maps, Google, Bing, Apple Maps, AI answers</span><span class="v">dated</span></div>
+        <div class="ln"><span class="it">Your website, as search tools read it</span><span class="v">pass or fail</span></div>
+        <div class="tot"><span class="lab">Fixes drafted for you, and the written report</span><span class="v">not built yet</span></div>
+      </article>
+      <span class="stamp rep-stamp" aria-hidden="true">SAMPLE</span>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="foot-note">SAMPLE. Partly built on 19 Oct 2026 and tried on public pages only: no test suite yet, not offered, not run for any client. It only reads public pages; it never logs in, posts, replies to a review or contacts anyone. Not built yet: drafted fixes for your website and Google profile, and the written report.</p>
+  </div>
+</section>
+
+<!-- No. 12 EVERYTHING IN ONE PLACE (deck No. 09, added 19 Oct overnight). Built and tested on SAMPLE only: 51_bookings, 52_guest_suite,
+     53_people, 54_social_studio (publishing OFF), 55_venue_site (not deployed). Prices: 28_pricing/VENUE_SAAS_STACK_AND_DISRUPTION_2026-10-18.md §2,
+     one-site gastropub, UK list prices read 18 Oct 2026; £1,641 = that stack's subscriptions a month. Motion: the biro prices write in, row by row. -->
+<section class="sec oneplace" data-sheet="12" id="oneplace" aria-labelledby="h-oneplace">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="no">No. 12</span>
+      <h2 id="h-oneplace">Fewer tools: everything in one place.</h2></div>
+      <p class="intro">A one-site restaurant pays about £1,641 a month for 18 to 20 separate tools. These jobs now run inside Back of House too, on the same records as your POS and accounts.</p>
+    </div>
+    <div class="op-grid">
+      <div class="op-ledger">
+        <p class="op-colhd" aria-hidden="true"><span></span><span></span><span>Often bought from, per month</span></p>
+        <ol class="op-rows">
+        <li><b>Bookings</b><p>Your own booking page and host stand: tables, turn times and a waitlist.</p><dl class="op-tools"><div><dt>Access Collins, from</dt><dd class="op-v" style="--i:0">£149</dd></div></dl></li>
+        <li><b>Guests</b><p>Reviews answered in your voice, loyalty, gift cards, and a wifi sign-up that asks first.</p><dl class="op-tools"><div><dt>125 Insights</dt><dd class="op-v" style="--i:1">£25</dd></div><div><dt>Square Loyalty</dt><dd class="op-v" style="--i:2">£45</dd></div><div><dt>Beambox</dt><dd class="op-v" style="--i:3">£41</dd></div></dl></li>
+        <li><b>People</b><p>Clock-in, timesheets, holiday and sickness, HR records, training, and pay worked out.</p><dl class="op-tools"><div><dt>Breathe HR</dt><dd class="op-v" style="--i:4">£99</dd></div><div><dt>Typsy</dt><dd class="op-v" style="--i:5">£250</dd></div></dl></li>
+        <li><b>Social</b><p>Posts planned, checked and signed by a named person, queued for each platform.</p><dl class="op-tools"><div><dt>Later</dt><dd class="op-v" style="--i:6">£28</dd></div></dl></li>
+        <li><b>Website</b><p>Your site, built from your menu, hours and licence. No cookies on arrival.</p><dl class="op-tools"><div><dt>Flipdish</dt><dd class="op-v" style="--i:7">£119</dd></div></dl></li>
+        </ol>
+      </div>
+      <div class="op-side">
+        <figure class="op-home"><div class="browser"><div class="bbar" aria-hidden="true"><i></i><i></i><i></i><span>Back of House · Today · SAMPLE</span></div><img src="assets/img/v6/today_rail.webp" alt="Today on a laptop for a sample group of three sites: 3 need someone on shift now, 23 wait for the morning, and the checks hang from the rail" width="1600" height="777" loading="lazy"></div><figcaption>Today, on one screen: whatever needs a person hangs on the rail, and the working sits underneath. Each role gets its own view: owner, GM, duty manager, head chef, bar manager, bookkeeper.</figcaption></figure>
+      <div class="chk torn op-not">
+        <div class="ch"><b>Not done yet</b></div>
+        <p><b>Posting</b> is switched off until each platform approves our app.</p>
+        <p><b>Payroll</b> is worked out, not filed: your payroll provider still files with HMRC.</p>
+        <p><b>WhatsApp and email</b> are written, not sent, until you say yes.</p>
+        <p><b>No online ordering,</b> and no card deposits taken online yet.</p>
+        <p><b>Keep your current tools</b> until a pilot proves each job.</p>
+      </div>
+      </div>
+    </div>
+    <p class="foot-note">SAMPLE: built and tested on invented sample venues, not yet live. Prices: published UK list prices read 18 Oct 2026, for a one-site restaurant of sample size, from our study of venue software costs. Named tools are examples, not partners.</p>
+  </div>
+</section>
+
+<!-- No. 13 CONNECT (deck No. 10; first of the two data-and-trust sheets, "Connect once, and we only read."; the data promises moved to No. 11). 41_accounting (88 tests) and 42_pos (167 tests) built,
+     not live. The demo below only animates this page; it connects to nothing. -->
+<section class="sec connect" data-sheet="13" id="connect" aria-labelledby="h-connect">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="no">No. 13</span>
+      <h2 id="h-connect">Connect once, and we only read.</h2></div>
+      <p class="intro">You click “connect” once on each account. After that, it reads your figures overnight. No downloads to send, nobody chasing files.</p>
+    </div>
+    <div class="cx-grid">
+      <div class="cx-systems" id="cx-systems">
+        <p class="try hand">Try it: pick a system.</p>
+      </div>
+      <div class="cx-out">
+        <svg id="plan-cx" class="plan cx-plan" viewBox="-10 -10 1030 800" role="img" aria-labelledby="plan-cx-t"><title id="plan-cx-t">The same venue again. When a system is linked, a line runs from that room to Back of House, read-only.</title></svg>
+        <article class="chk torn cx-ticket" id="cx-ticket" aria-live="polite"></article>
+      </div>
+      <div class="cx-keep">
+    <p class="cx-status"><span class="tag">built and tested</span>on invented sample venues, from each vendor’s published documentation. Not yet live with a venue: each vendor has to approve our app first. Until then, the audit runs on downloads from your systems.</p>
+      <figure class="trust-fig"><img src="assets/img/v5/setup_trust2.png" alt="Set-up screen: check one number you know. Last Saturday, your POS says you took £4,892 including VAT. Is that right?" width="840" height="806" loading="lazy"><figcaption><b>Check one number you know.</b> Before we show you anything, you confirm a figure you already know, such as last Saturday’s takings. If it’s wrong, we stop and fix how we read it.</figcaption></figure>
+      <details class="working shots">
+        <summary>See the real Connections screen</summary>
+        <div class="browser"><div class="bbar" aria-hidden="true"><i></i><i></i><i></i><span>Back of House · Connections · SAMPLE</span></div><img src="assets/img/v6/connections_accounts.webp" alt="Connections, accounts software: Xero ready with what it has read, QuickBooks Online, Sage Business Cloud Accounting and FreeAgent not connected, each card listing what it reads, what it never does, and that you sign in on the vendor's own page" width="1600" height="1188" loading="lazy"></div>
+        <p class="src">Real screen. FreeAgent is built on its published format and sample data; it has not read a real FreeAgent account.</p>
+      </details>
+      <p class="cx-ro"><b>Read-only.</b> Our software refuses any change to your accounts, POS or socials. Each link needs your consent on record before it reads anything.</p>
+      </div>
+    </div>
+    <p class="foot-note">Named systems are the ones we have built links for; none is a partner. Some need the vendor’s approval or a paid plan on your side before they can link; we tell you which on the first call.</p>
+  </div>
+</section>
+
+<!-- No. 14 YOUR DATA STAYS YOURS (deck No. 11, new 19 Oct evening). 14 boh_egress (rows 159/140/141, senders HARD-DISABLED);
+     02 tenancy (row 132, exact line); 26 + 13 box export outside the licence gate (row 131); 07 venue_record (per-venue record).
+     The check is set from 14_integrations/out/egress/egress_view.json (SAMPLE): nothing has left, 4 refused, sent 0. -->
+<section class="sec yours" data-sheet="14" id="yours" aria-labelledby="h-yours">
+  <div class="wrap">
+    <span class="no">No. 14</span>
+    <h2 id="h-yours">Your data stays yours, and every decision is signed.</h2>
+    <div class="yours-grid">
+      <ol class="nlist big yours-list">
+        <li><span class="num" aria-hidden="true">1</span><span><b>Nothing leaves without your SEND.</b>Every message waits for a SEND from a named owner or manager, for that exact message. Our WhatsApp and email senders are built, and switched off until you say yes.</span></li>
+        <li><span class="num" aria-hidden="true">2</span><span><b>Each venue kept apart.</b>Each venue’s data is kept in its own folder and its own database files, and our software refuses to read one venue’s data while working on another’s.</span></li>
+        <li><span class="num" aria-hidden="true">3</span><span><b>Take your data any time.</b>Even if you stop paying: your records as spreadsheet files and a database copy, with a list to check nothing is missing.</span></li>
+        <li><span class="num" aria-hidden="true">4</span><span><b>Every decision signed, per venue.</b>Who signed, said no or said not now, and why. Each line is locked to the one before, so any change afterwards shows.</span></li>
+        <li><span class="num" aria-hidden="true">5</span><span><b>Never sold or shared.</b>Not with suppliers, drinks brands or lenders. No staff pay data until you sign the data agreement.</span></li>
+      </ol>
+      <div class="yours-side">
+        <article class="chk torn hang egress" aria-labelledby="eg-h">
+          <div class="ch"><b id="eg-h">Sent from Back of House</b><span class="serial">its own log</span></div>
+          <p class="f-title">Nothing has left this machine.</p>
+          <div class="ln"><span class="it">Morning message by WhatsApp<small>no SEND 3CED14 from a named owner or manager</small></span><span class="v">refused</span></div>
+          <div class="ln"><span class="it">Morning message by email<small>no SEND 82F35F</small></span><span class="v">refused</span></div>
+          <div class="ln"><span class="it">Reading your Xero invoices and FreeAgent bills<small>no consent on record</small></span><span class="v">2 refused</span></div>
+          <div class="tot"><span class="lab">Sent</span><span class="v">0</span></div>
+        </article>
+        <span class="stamp eg-stamp" aria-hidden="true">SAMPLE</span>
+      </div>
+    </div>
+    <!-- 19 Oct (late, after 38 v6.1 wiring): #/record on The Copper Hare, frozen scratch server :8842 (BOH_FREEZE_SCENE=1): the venue's own
+         record (07 venue_record), one line signed by Jane O. (owner), and "What has left this machine" (14 boh_egress). -->
+    <figure class="record-fig">
+      <div class="browser"><div class="bbar" aria-hidden="true"><i></i><i></i><i></i><span>Back of House · Signed record · The Copper Hare · SAMPLE</span></div><img src="assets/img/v6/record_venue.webp" alt="The Copper Hare's own signed record: 2 lines, each sealed to the one before, intact. Every answer given for this venue and nothing from any other; line 2 signed by Jane O., owner, in her own hand; line 1 printed by Back of House" width="1600" height="386" loading="lazy"></div>
+      <figcaption><b>One record per venue, printed by us, signed by a person.</b> Lines Back of House wrote are printed; a signature is in the person’s own hand.</figcaption>
+    </figure>
+    <details class="working shots">
+      <summary>See the real “What has left this machine” screen</summary>
+      <div class="browser"><div class="bbar" aria-hidden="true"><i></i><i></i><i></i><span>Back of House · Signed record · SAMPLE</span></div><img src="assets/img/v6/egress_view.webp" alt="What has left this machine: Nothing has left this machine. The kill switch is on, sending and live reading are off, no addresses allowed; four refused tries listed with the reason, and two morning messages waiting for the owner's SEND with their codes" width="1600" height="1096" loading="lazy"></div>
+    </details>
+    <p class="foot-note">SAMPLE: built and tested on sample venues; not yet run at a venue. Screens are real, cropped and not retouched.</p>
+  </div>
+</section>
+
+<!-- No. 15 COSTS (deck No. 13). Content unchanged in the plain rebuild. -->
+<section class="sec cost" data-sheet="15" id="cost" aria-labelledby="h-cost">
+  <div class="wrap two">
+    <div>
+      <span class="no">No. 15</span>
+      <h2 id="h-cost">What it costs, and when you commit.</h2>
+      <ol class="nlist big">
+        <li><span class="num" aria-hidden="true">1</span><span><b>The audit</b>Free for our first venues. You keep the report either way.</span></li>
+        <li><span class="num" aria-hidden="true">2</span><span><b>The 30-day trial</b>One start fee per site covers setup and the trial. If it misses the target you wrote down, you stop and owe nothing more.</span></li>
+        <li><span class="num" aria-hidden="true">3</span><span><b>After that</b>One monthly fee per site, agreed after the audit. Twelve months paid monthly by Direct Debit, or month to month for a little more.</span></li>
+      </ol>
+      <p class="foot-note">Prices are agreed per site, after the audit.</p>
+    </div>
+    <div class="chk torn stop">
+      <div class="ch"><b>If you want to stop</b></div>
+      <p>30 days’ notice, by one message.</p>
+      <p>Leave a 12-month term early and you repay the discount, not the rest of the term.</p>
+      <p>You keep your reports and an export of your records, free.</p>
+    </div>
+  </div>
+</section>
+
+<!-- No. 16 BOOK (deck No. 14). Contact: james@huertas.co.uk, the deck's CONTACT_LINE (COPY.md line 11). No phone. -->
+<section class="sec book" data-sheet="16" id="book" aria-labelledby="h-book">
+  <div class="wrap two">
+    <div>
+      <span class="no">No. 16</span>
+      <h2 id="h-book">Next step: a first call about your venue.</h2>
+      <dl class="nx">
+        <div><dt>On the call</dt><dd>Tell us which operating systems you run (POS, rota, booking, accounts). We send a one-page list of what to download.</dd></div>
+        <div><dt>Then</dt><dd>An hour or two in your office for the audit, and a report you keep. Yours would be one of our first real venues, so we check every finding with you.</dd></div>
+        <div><dt>Or start small</dt><dd>Send one week of your rota and sales, and we score your rota with you.</dd></div>
+      </dl>
+      <div class="book-cta">
+        <a class="btn" href="mailto:james@huertas.co.uk?subject=Opportunity%20Audit%20for%20my%20venue">Book an audit by email</a>
+      </div>
+      <p class="mail-line">Or write to <a href="mailto:james@huertas.co.uk?subject=Opportunity%20Audit%20for%20my%20venue">james@huertas.co.uk</a></p>
+      <p class="sign">James Huertas, Back of House</p>
+    </div>
+    <figure class="drawing street"><!-- 19 Oct 17:12 (James): hand-lettered BAR on the fascia and the bracket sign, drawn as pencil strokes in SVG over the sketch --><div class="street-art"><img src="assets/img/street.jpg" alt="Drawing: a venue's street front, a figure at the door; your venue, its POS, rota, invoices and counts" width="1000" height="951" loading="lazy"><svg class="street-sign" viewBox="0 0 1000 951" aria-hidden="true" focusable="false"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path class="ghost" d="M484.3,445.2 482.7,477.1 M483.5,447.4 C502,445.2 500.6,461.9 482.8,460.7 M483.2,461.7 C504,459.7 503.4,479.6 482,476.5 M514.1,477.1 527.3,445.7 535.7,476.9 M517.8,466.8 532.3,465.4 M549,477.7 550.4,445.3 M548.7,446.8 C570.3,445.1 568.1,462.8 549.8,461.6 M555.7,462.1 567.8,477.7" stroke-width="1.4" transform="translate(0.9 -0.6)"/><path class="ghost" d="M909.3,530.7 908.3,547.3 M909.1,531 C918.9,530.3 917.9,539 908.2,538.8 M908.8,538.6 C920.4,537.9 919.3,548.1 907.8,546.8 M907.2,568.7 914,551.5 918.8,568.3 M909.7,562.5 917.8,561.4 M907.9,589.2 908.3,572.1 M908.2,572.4 C918.8,571.9 918.2,580.7 908.5,581 M911,580.4 918.6,589.3" stroke-width="1.0" transform="translate(0.9 -0.6)"/><path class="ink" d="M484.3,445.2 482.7,477.1 M483.5,447.4 C502,445.2 500.6,461.9 482.8,460.7 M483.2,461.7 C504,459.7 503.4,479.6 482,476.5 M514.1,477.1 527.3,445.7 535.7,476.9 M517.8,466.8 532.3,465.4 M549,477.7 550.4,445.3 M548.7,446.8 C570.3,445.1 568.1,462.8 549.8,461.6 M555.7,462.1 567.8,477.7" stroke-width="3.4"/><path class="ink" d="M909.3,530.7 908.3,547.3 M909.1,531 C918.9,530.3 917.9,539 908.2,538.8 M908.8,538.6 C920.4,537.9 919.3,548.1 907.8,546.8 M907.2,568.7 914,551.5 918.8,568.3 M909.7,562.5 917.8,561.4 M907.9,589.2 908.3,572.1 M908.2,572.4 C918.8,571.9 918.2,580.7 908.5,581 M911,580.4 918.6,589.3" stroke-width="2.6"/></g></svg></div></figure>
+  </div>
+</section>
+
+<!-- No. 17 EVERYTHING INSIDE (deck No. 15 and 16). 19 Oct plain rebuild: the whole list sits in one <details>, closed by default;
+     lines reworded into owner words; rows 13, 180, 185, 206 added (FEATURE_COVERAGE §4, 'in neither deck nor landing'); 128 left out on purpose;
+     60_reputation added, marked in build. Was folded so the phone page stays short. Regenerated 19 Oct (late) from 33_client_deck/client.html (17-page deck)
+     (the same lines, same order). Every line maps to register rows in 99_FINAL/FEATURE_COVERAGE_2026-10-19.md. -->
+<section class="sec inside" data-sheet="17" id="inside" aria-labelledby="h-inside">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="no">No. 17</span>
+      <h2 id="h-inside">The full list.</h2></div>
+      <p class="intro">For anyone who wants every part. Lines marked <span class="tag">prototype</span> work but are still being tested; <span class="tag">in build</span> is new and partly built. Neither is offered yet.</p>
+    </div>
+    <details class="inside-all" id="inside-all">
+      <summary><span class="ia-l">Show the full list</span><span class="ia-n hand">113 lines</span></summary>
+    <div class="inside-grid">
+      <div class="fams">
+        <details class="fam"><summary><span class="num" aria-hidden="true">1</span><b>Find the money</b><span class="cnt">15 parts</span></summary><ul>
+    <li>The Opportunity Audit: every leak in pounds, ranked, with the sums and what it couldn’t check</li>
+    <li>Found, signed, banked: banked only with a bank line, credit note or invoice</li>
+    <li>Each finding marked right, wrong or already knew</li>
+    <li>What changed, from when, and why; whether a change you made worked, and a follow-up on every suggestion</li>
+    <li>Bank, card settlements and cash banked against the POS</li>
+    <li>Supplier invoices checked against the supplier’s own copy: sums, VAT, duplicates, unpaid</li>
+    <li>Standing orders with no invoice; payroll, HMRC and energy bills against the bank</li>
+    <li>What you really pay in card fees; card payouts traced to the bank; the date to answer each disputed payment</li>
+    <li>Brand retros, listing fees and free stock against each contract</li>
+    <li>True cost per serve and the price that hits your GP, in workbooks with the formulas showing</li>
+    <li>Every dish and drink ranked on sales and margin</li>
+    <li>Price creep, a renegotiation brief, and the cheapest like-for-like product across your suppliers</li>
+    <li>Warnings when duty, delivery or exchange rates will push your costs up, tested on past UK prices</li>
+    <li>Rent and rates against your area; the venue’s financial profile</li>
+    <li>Your lease read for its key terms, and an estimate of what it is worth, labelled an estimate</li>
+        </ul></details>
+        <details class="fam"><summary><span class="num" aria-hidden="true">2</span><b>Run the night</b><span class="cnt">17 parts</span></summary><ul>
+    <li>A morning message of what needs you, written for WhatsApp or email</li>
+    <li>Sign, Say no, Not now or Why on every check; a no always needs a reason</li>
+    <li>Service mode: only what needs you now</li>
+    <li>A home for each role, from owner to bookkeeper</li>
+    <li>Day close: takings against payments, held when they differ</li>
+    <li>Sales, labour, GP and covers against the same day last year</li>
+    <li>Floor moves during service, with the labour cost</li>
+    <li>Friday and Saturday dinner: where the kitchen or bar stops keeping up</li>
+    <li>Stock reorders and transfers between sites, for you to sign</li>
+    <li>Checklists and temperatures on staff phones, with probe photos and an inspection&nbsp;pack</li>
+    <li>Food-safety and certificate rules checked every day, and a sealed copy of the record for an auditor</li>
+    <li>Licensing rules and renewals for your postcode in England, Wales, Scotland and Northern Ireland</li>
+    <li>Cumulative impact zones, where the council publishes the boundary</li>
+    <li>Monday review: day, week and period to date; a weekly note with only the exceptions</li>
+    <li>An inbox of every message Back of House would send, to whom and when, as drafts</li>
+    <li>Questions answered from your own figures <span class="tag">prototype</span></li>
+    <li>If the POS goes down: an order pad that replays once <span class="tag">prototype</span></li>
+        </ul></details>
+        <details class="fam"><summary><span class="num" aria-hidden="true">3</span><b>Your people</b><span class="cnt">14 parts</span></summary><ul>
+    <li>Score your rota: labour, hours against covers, skills on each shift, working time</li>
+    <li>Balanced rotas against your wage ceiling</li>
+    <li>Sickness cover from people who can do the job</li>
+    <li>Day-off requests, shift swaps and holiday requests</li>
+    <li>Clock-in by PIN; timesheets against the rota</li>
+    <li>Holiday accrual, SSP and working-time rules, including under-18s</li>
+    <li>Pay worked out and checked against HMRC’s test data; you approve it</li>
+    <li>Tips, tronc and staff accommodation mapped to your accounts</li>
+    <li>Right-to-work records, onboarding, and disciplinary and grievance records against the Acas Code</li>
+    <li>Draft contracts and staff privacy notice, for a solicitor to review</li>
+    <li>Training paths, quizzes and certificates, booked into quiet weeks and costed</li>
+    <li>Skills set by managers, never ranked; each person keeps their own skills record</li>
+    <li>A handover pack for a new manager: decisions, suppliers, regulars, licence dates</li>
+    <li>What staff really cost: hiring, training, turnover, and when a pay rise pays back</li>
+        </ul></details>
+        <details class="fam"><summary><span class="num" aria-hidden="true">4</span><b>Your guests</b><span class="cnt">14 parts</span></summary><ul>
+    <li>Your own booking page and widget, inside your licensed hours</li>
+    <li>Host stand on a plan of your floor, waitlist and table turns</li>
+    <li>Deposits and no-show fees <span class="tag">prototype</span></li>
+    <li>Bookings brought in from Tebi, SevenRooms or ResDiary exports <span class="tag">prototype</span></li>
+    <li>Guest memory, encrypted, with a consent record</li>
+    <li>The pre-shift brief: regulars, celebrations, what went wrong</li>
+    <li>A recovery log that opens a follow-up</li>
+    <li>Your bookings in the audit: regulars never asked back, lapsed regulars, open recoveries</li>
+    <li>House list, quiet perks and thank-you cards; a monthly regulars report</li>
+    <li>Google reviews: reply drafts you approve; one and two stars go to recovery</li>
+    <li>Loyalty, with points or stamps; gift cards, with HMRC’s voucher test</li>
+    <li>A wifi sign-up that asks first</li>
+    <li>Email and text campaigns: you approve them, a few guests are held back to show if it worked, and you send the list</li>
+    <li>Guests can ask for their data or to be forgotten; old records cleared on schedule</li>
+        </ul></details>
+        <details class="fam"><summary><span class="num" aria-hidden="true">5</span><b>Grow and get found</b><span class="cnt">17 parts</span></summary><ul>
+    <li>Instagram, Facebook, TikTok and Google Business Profile, linked read-only and read daily</li>
+    <li>Each campaign tied to a code word, so its platform numbers can be matched</li>
+    <li>Campaigns to guests who said yes, with a holdout</li>
+    <li>A monthly plan: captions, photo notes, a line for the floor</li>
+    <li>Did it pay? Measured on POS gross profit</li>
+    <li>A marketing budget ceiling, with stop rules</li>
+    <li>Social studio: alcohol and ad-disclosure checks, signed by a named person</li>
+    <li>Ideas for quiet hours, from other venues’ own menus and promotions</li>
+    <li>Footfall nearby: hotels, short lets, concierge partners</li>
+    <li>Quiet slots matched to nearby shows, with a licensing check on offers</li>
+    <li>Chef, mixologist, sommelier and buyer playbooks: specials and serves</li>
+    <li>Your prices beside nearby venues’ own menus <span class="tag">prototype</span></li>
+    <li>Trends and your own reviews, read for the menu <span class="tag">prototype</span></li>
+    <li>Your reviews on every public site, beside nearby venues <span class="tag">in build</span></li>
+    <li>Awards, lists and press about your venue, with links <span class="tag">in build</span></li>
+    <li>Where you show up on Google Maps, Google, Bing, Apple Maps and AI answers, dated <span class="tag">in build</span></li>
+    <li>Your website checked the way Google and AI search tools read it <span class="tag">in build</span></li>
+        </ul></details>
+        <details class="fam"><summary><span class="num" aria-hidden="true">6</span><b>Your stack in one place</b><span class="cnt">14 parts</span></summary><ul>
+    <li>One screen on a laptop or phone, with the working behind every figure</li>
+    <li>Accounts: Xero, QuickBooks, Sage and FreeAgent</li>
+    <li>POS: Square, Toast, Epos Now and SumUp</li>
+    <li>A POS we can’t link to: its daily report by email</li>
+    <li>Card processors: Stripe, Square and SumUp</li>
+    <li>VAT, PAYE and corporation tax dates</li>
+    <li>Bookings, guests, people, social and website on the same records</li>
+    <li>Your website from your menu, hours and licence, with an allergens page and no cookies</li>
+    <li>Files you send: a shared folder or forwarded email</li>
+    <li>Your systems read on a schedule overnight; a failed read is retried, and you’re asked if a link needs reconnecting</li>
+    <li>Downloads from your systems read even when columns are named oddly, and checked before we start</li>
+    <li>Set-up in order, ending with a check of one number you already know</li>
+    <li>The 30-day trial: suggestions against what happened</li>
+    <li>A plan of your floor, with live moves</li>
+        </ul></details>
+        <details class="fam"><summary><span class="num" aria-hidden="true">7</span><b>Your data stays yours</b><span class="cnt">12 parts</span></summary><ul>
+    <li>Read-only: our software refuses any change to your systems</li>
+    <li>Nothing leaves without your SEND, for that exact message</li>
+    <li>Each venue in its own folder and database files, never read while working on another</li>
+    <li>Take your data any time, even if you stop paying</li>
+    <li>Pay, purchases, compliance and guest messages always need a named person</li>
+    <li>Every signature tied to exactly what you saw</li>
+    <li>A signed record per venue, where a changed line shows</li>
+    <li>No staff pay data before the data agreement</li>
+    <li>Logins to your systems locked away; messages into our software checked as genuine</li>
+    <li>Guest consent recorded; subject access and erase</li>
+    <li>Backups you can check are complete; our health checks send counts, never your figures</li>
+    <li>Never sold or shared: not with suppliers, drinks brands or lenders</li>
+        </ul></details>
+      </div>
+      <div class="chk torn notyet">
+    <div class="ch"><b>Not offered yet</b></div>
+    <h3>Built, switched off or in testing</h3>
+    <ul>
+      <li>Sending WhatsApp and email (off until you say yes)</li>
+      <li>Posting to your socials (switched off)</li>
+      <li>Our own POS, on a payment provider’s card reader</li>
+      <li>An on-site box with your own encrypted copy and key, signed updates and self-checks</li>
+      <li>Invoice photos and bottle counts read from pictures</li>
+      <li>Card deposits taken online (simulated only)</li>
+    </ul>
+    <h3>Not built</h3>
+    <ul>
+      <li>Filing payroll with HMRC</li>
+      <li>Live links to any vendor: each must approve our app first</li>
+      <li>Online ordering</li>
+      <li>A staff phone app</li>
+    </ul>
+      </div>
+    </div>
+    </details>
+    <p class="foot-note">Built and tested on invented sample venues. Not yet live with a venue. Licensing: England, Wales, Scotland and Northern Ireland; impact zones for the London councils read so far.</p>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <img src="assets/img/back-of-house_mark.svg" alt="" width="30" height="36">
+    <p>Back of House is a trading name of Back of House Drinks Limited (UK).</p>
+    <p>Every figure, message and screen on this page is SAMPLE output on invented venues.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="assets/plan.js" defer></script>
+<script src="assets/content.js" defer></script>
+<script src="assets/site.js" defer></script>
+<script src="assets/features.js" defer></script>
+</body>
+</html>

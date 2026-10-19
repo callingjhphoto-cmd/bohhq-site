@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.0 72.0" width="60.0" height="72.0">
+  <title>Back of House mark</title>
+  <g id="mark">
+    <rect id="mark-rail" fill="#18211C" x="0" y="0" width="60" height="8" rx="1.5"/>
+    <path id="mark-check" fill="#18211C" d="M10,11 H50 V66 L45,72 L40,66 L35,72 L30,66 L25,72 L20,66 L15,72 L10,66 Z"/>
+    <g id="mark-ruling" fill="#E2ECDD">
+      <rect id="rule-1" x="16" y="24" width="28" height="4"/>
+      <rect id="rule-2" x="16" y="34" width="28" height="4"/>
+      <rect id="rule-3" x="29" y="48" width="15" height="4"/>
+    </g>
+    <rect id="mark-serial" fill="#C3302A" x="16" y="48" width="9" height="4"/>
+  </g>
+</svg>
