@@ -82,3 +82,6 @@
 
 /* phone: the title block stays legible (impeccable detect: 10.5px functional text) */
 @media (max-width:900px){.title-block{font-size:11px}.title-block .tb-c{font-size:12px}}
+
+/* Get the app: header button hidden on phones (hero and contact carry it) - 20 Oct 2026 */
+@media (max-width: 720px){ .hdr-app{ display:none } }
