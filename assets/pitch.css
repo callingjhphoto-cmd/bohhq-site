@@ -89,3 +89,7 @@
   .lbl-lg{ display:none } .lbl-sm{ display:inline }
   .hdr-app, .hdr-app + .btn{ padding-inline:12px; white-space:nowrap }
 }
+
+.hero-problem{margin:0 0 clamp(14px,1.6vw,22px);font-size:clamp(15px,1.15vw,18px);line-height:1.45;font-weight:650;color:var(--red);max-width:62ch}
+.hero-problem span{white-space:nowrap}
+@media (max-width:520px){.hero-problem span{white-space:normal}}
