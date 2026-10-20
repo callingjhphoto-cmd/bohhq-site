@@ -83,5 +83,9 @@
 /* phone: the title block stays legible (impeccable detect: 10.5px functional text) */
 @media (max-width:900px){.title-block{font-size:11px}.title-block .tb-c{font-size:12px}}
 
-/* Get the app: header button hidden on phones (hero and contact carry it) - 20 Oct 2026 */
-@media (max-width: 720px){ .hdr-app{ display:none } }
+/* Get the app: header button stays on phones; the audit button shortens to fit (James, 20 Oct 2026) */
+.lbl-sm{ display:none }
+@media (max-width: 720px){
+  .lbl-lg{ display:none } .lbl-sm{ display:inline }
+  .hdr-app, .hdr-app + .btn{ padding-inline:12px; white-space:nowrap }
+}
